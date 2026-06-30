@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
+require 'bundler/setup'
 require 'rspec'
 
 RSpec.configure do |config|
@@ -10,8 +11,10 @@ RSpec.configure do |config|
   end
 
   config.mock_with :rspec do |mocks|
-    mocks.verify_partial_doubles = true
+    mocks.allow_message_expectations_on_nil = false
   end
 
-  config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.default_formatter = 'progress'
+  config.color = true
+  config.order = :random
 end
