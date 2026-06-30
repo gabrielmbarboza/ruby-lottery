@@ -19,7 +19,7 @@ RSpec.describe "CLI Commands" do
       output = capture_output { cmd.call(games: "2", tens: "6") }
 
       lines = output.split("\n").reject(&:empty?)
-      expect(lines).to have(2).items
+      expect(lines.size).to eq(2)
     end
   end
 
