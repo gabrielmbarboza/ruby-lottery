@@ -13,11 +13,11 @@ sample_lines = Array.new(1000) do
 end
 
 Benchmark.bm do |x|
-  x.report("LotteryAnalyzer (Ractor-based)") do
+  x.report("LotteryAnalyzer (Fiber-based)") do
     100.times do
       Lotto::Domain::LotteryAnalyzer.analyze(sample_lines, 6)
     end
   end
 end
 
-puts "\n✅ Benchmark complete! Ractor-based implementation is production-ready."
+puts "\n✅ Benchmark complete! Fiber-based implementation is production-ready."
