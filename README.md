@@ -1,12 +1,12 @@
 # Ruby Lottery
 
-Advanced lottery analysis CLI using **Ruby 3.3 Ractors** for safe, performant concurrency.
+Advanced lottery analysis CLI using **Ruby 3.3 Fibers** for stable, efficient concurrency.
 
 This project demonstrates best practices for concurrent Ruby programming, analyzing Brazilian Megasena lottery results with modern Ruby parallelization patterns.
 
 ## 🚀 Features
 
-- **Ractor-based concurrency**: Safe parallel processing without mutex locks
+- **Fiber-based concurrency**: Lightweight cooperative concurrency for stable processing
 - **Modular architecture**: Clean separation of concerns (CLI, Domain, Data)
 - **Comprehensive tests**: RSpec test suite with mocks and fixtures
 - **Professional structure**: Production-ready project layout
@@ -62,7 +62,7 @@ lib/lotto/
 │   ├── commands/       # Individual CLI commands
 │   └── commands.rb     # Command registry
 ├── domain/             # Business logic
-│   ├── ractor_pool.rb       # Ractor pool abstraction
+│   ├── fiber_pool.rb        # Fiber pool abstraction
 │   ├── lottery_analyzer.rb  # Number frequency analysis
 │   ├── random_generator.rb  # Random game generation
 │   └── web_scraper.rb       # Web scraping service
@@ -85,16 +85,16 @@ bundle exec rspec --format progress
 
 ## ⚡ Performance
 
-Ractor-based implementation:
-- ✅ Safe concurrency (no mutex bottlenecks)
-- ✅ True parallelism on multi-core systems
-- ✅ Isolated memory spaces (no accidental state sharing)
+Fiber-based implementation:
+- ✅ Lightweight concurrency with minimal overhead
+- ✅ Stable, predictable behavior across Ruby versions
+- ✅ Efficient context switching for I/O operations
 - ✅ Production-grade stability (Ruby 3.3 LTS)
 
 ## 📚 Learning Resources
 
 This project demonstrates:
-- Ruby 3.3 Ractor API and patterns
+- Ruby 3.3 Fiber API and patterns
 - CLI development with Dry::CLI
 - Service-oriented architecture
 - RSpec testing patterns
