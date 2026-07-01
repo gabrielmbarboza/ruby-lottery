@@ -2,7 +2,7 @@
 
 module Lotto
   module Domain
-    class RactorPool
+    class FiberPool
       def initialize(size: 4, &block)
         @size = size
         @block = block

@@ -4,7 +4,7 @@ require 'dry/cli'
 require 'tty/spinner'
 require 'lotto/domain/web_scraper'
 require 'lotto/data/file_handler'
-require 'lotto/domain/ractor_pool'
+require 'lotto/domain/fiber_pool'
 
 module Lotto
   module CLI
@@ -24,15 +24,7 @@ module Lotto
           # Clear existing data
           Data::FileHandler.clear("lotto.txt")
 
-          # Use Ractor pool to fetch years in parallel
-          pool = Domain::RactorPool.new(size: 4) do
-            year_data = Ractor.receive
-            year, numbers = year_data
-            result = Domain::WebScraper.fetch_year_data(year)
-            Ractor.yield([year, result])
-          end
-
-          # Simpler approach: fetch years sequentially, write to file
+          # Fetch years and write to file
           years.each do |year|
             data = Domain::WebScraper.fetch_year_data(year)
             data.each do |tens|

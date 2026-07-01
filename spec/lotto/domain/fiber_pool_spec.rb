@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'lotto/domain/ractor_pool'
+require 'lotto/domain/fiber_pool'
 
-RSpec.describe Lotto::Domain::RactorPool do
+RSpec.describe Lotto::Domain::FiberPool do
   describe '#map' do
     it 'processes items with fibers' do
       results = []

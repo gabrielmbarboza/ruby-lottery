@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'lotto/domain/ractor_pool'
+require 'lotto/domain/fiber_pool'
 
 module Lotto
   module Domain
