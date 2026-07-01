@@ -7,9 +7,7 @@ module Lotto
     class WebScraper
       BASE_URL = "https://asloterias.com.br/resultados-da-mega-sena"
       SELECTOR = ".dezenas_mega"
-
-      # Fetch lottery data for a specific year
-      # Returns array of arrays (e.g., [["01", "02", "03", ...], ...])
+      
       def self.fetch_year_data(year)
         agent = Mechanize.new
         url = "#{BASE_URL}-#{year}"

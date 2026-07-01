@@ -5,35 +5,34 @@ module Lotto
     class RactorPool
       def initialize(size: 4, &block)
         @size = size
-        @ractor_block = block
-        @ractors = Array.new(@size) do
-          Ractor.new(&block)
-        end
+        @block = block
       end
 
       def map(items)
+        return [] if items.empty?
+
         results = []
-        queue = items.dup
+        fibers = []
 
-        loop do
-          available = Ractor.select(*@ractors)
-          break if available.empty? && queue.empty?
-
-          next if available.empty?
-
-          item = queue.shift
-          break if item.nil?
-
-          ractor = available.first
-          ractor.send(item)
+        items.each do |item|
+          fiber = Fiber.new do
+            @block.call(item)
+          end
+          fibers << fiber
         end
 
-        results = @ractors.map(&:take)
-        results.flatten.compact
+        # Resume fibers in batches to simulate concurrency
+        fibers.each_slice(@size) do |batch|
+          batch.each do |fiber|
+            fiber.resume if fiber.alive?
+          end
+        end
+
+        results
       end
 
       def shutdown
-        @ractors.each(&:terminate)
+        # Fiber cleanup (minimal needed)
       end
     end
   end
