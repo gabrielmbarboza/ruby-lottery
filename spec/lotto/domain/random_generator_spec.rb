@@ -8,7 +8,7 @@ RSpec.describe Lotto::Domain::RandomGenerator do
     it 'generates correct number of games' do
       result = described_class.generate_games(5, 6)
 
-      expect(result).to have(5).items
+      expect(result.size).to eq(5)
     end
 
     it 'generates games with correct number of tens' do

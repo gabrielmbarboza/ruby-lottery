@@ -1,77 +1,109 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.5)
-      public_suffix (>= 2.0.2, < 6.0)
-    connection_pool (2.4.1)
-    diff-lcs (1.5.0)
-    domain_name (0.6.20231109)
-    dry-cli (1.0.0)
-    hashdiff (1.0.1)
-    http-cookie (1.0.5)
+    addressable (2.9.0)
+      public_suffix (>= 2.0.2, < 8.0)
+    base64 (0.3.0)
+    bigdecimal (4.1.2)
+    connection_pool (2.5.5)
+    crack (1.0.1)
+      bigdecimal
+      rexml
+    diff-lcs (1.6.2)
+    domain_name (0.6.20240107)
+    dry-cli (1.4.1)
+    hashdiff (1.2.1)
+    http-cookie (1.1.6)
       domain_name (~> 0.5)
-    mechanize (2.9.1)
+    logger (1.7.0)
+    mechanize (2.14.0)
       addressable (~> 2.8)
+      base64
       domain_name (~> 0.5, >= 0.5.20190701)
       http-cookie (~> 1.0, >= 1.0.3)
-      mime-types (~> 3.0)
+      mime-types (~> 3.3)
       net-http-digest_auth (~> 1.4, >= 1.4.1)
       net-http-persistent (>= 2.5.2, < 5.0.dev)
+      nkf
       nokogiri (~> 1.11, >= 1.11.2)
       rubyntlm (~> 0.6, >= 0.6.3)
       webrick (~> 1.7)
       webrobots (~> 0.1.2)
-    mime-types (3.5.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.1003)
-    mini_portile2 (2.8.5)
+    mime-types (3.7.0)
+      logger
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2026.0414)
     net-http-digest_auth (1.4.1)
-    net-http-persistent (4.0.2)
-      connection_pool (~> 2.2)
-    nokogiri (1.15.5)
-      mini_portile2 (~> 2.8.2)
+    net-http-persistent (4.0.8)
+      connection_pool (>= 2.2.4, < 4)
+    nkf (0.3.0)
+    nokogiri (1.19.4-aarch64-linux-gnu)
       racc (~> 1.4)
-    public_suffix (5.0.4)
-    racc (1.7.3)
-    rexml (3.2.5)
-    rspec (3.13.0)
+    nokogiri (1.19.4-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.19.4-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.4-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.19.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-linux-musl)
+      racc (~> 1.4)
+    public_suffix (7.0.5)
+    racc (1.8.1)
+    rexml (3.4.4)
+    rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.0)
+    rspec-collection_matchers (1.2.1)
+      rspec-expectations (>= 2.99.0.beta1)
+    rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.0)
+    rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.0)
+    rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-support (3.13.0)
-    rubyntlm (0.6.3)
+    rspec-support (3.13.7)
+    rubyntlm (0.6.5)
+      base64
     tty-cursor (0.7.1)
     tty-spinner (0.9.3)
       tty-cursor (~> 0.7)
-    webmock (3.24.0)
+    webmock (3.26.2)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
-      hashdiff (>= 0.4.0)
-    webrick (1.8.1)
+      hashdiff (>= 0.4.0, < 2.0.0)
+    webrick (1.9.2)
     webrobots (0.1.2)
-    crack (0.4.5)
-      rexml
 
 PLATFORMS
-  ruby
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
-  dry-cli (~> 1.0.0)
-  mechanize (~> 2.9, >= 2.9.1)
+  connection_pool (~> 2.4)
+  dry-cli (~> 1.4.1)
+  mechanize (~> 2.14.0)
   rspec (~> 3.13)
+  rspec-collection_matchers
   tty-spinner (~> 0.9.3)
   webmock (~> 3.24)
 
 RUBY VERSION
-   ruby 3.3.0
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.4.22
+   2.5.3
